@@ -20,8 +20,8 @@
         <td>
             <!-- <button class="btn btn-primary" (click)="openEditModal(user.id, user.name)">Edit</button>
             <app-modal [editedUserId]="editedUserId" [editedUserName]="editedUserName"></app-modal> -->
-            <button class="btn btn-info" >Edit</button>
-            <button class="btn btn-danger ml-5px" (click)="deleteUser(user)">Delete</button>
+            <button class="btn btn-info" (click)="open(editModal, i)">Edit</button>
+            <button class="btn btn-danger ml-5px" (click)="deleteUser(i)">Delete</button>
         </td>
       </tr>
     </tbody>
@@ -30,41 +30,54 @@
   <button class="btn  btn-outline-primary" (click)="open(editModal)" >Add User</button></div>
 
   <ng-template #editModal>
-    <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
-      <div>
+    <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()" style="padding: 10px;">
+
+        <button (click)="closeModal()" style="text-align: end;padding-right: 10px;">x</button>
+        <div style="text-align: center;padding-bottom: 10px;">
+          <h4>{{ isEditMode ? 'Edit User' : 'Add User' }}</h4>
+        </div>
+      <div style="padding: 5px;">
         <label for="name">Name:</label>
-        <input id="name" formControlName="name">
-        <div *ngIf="f['name'].touched && f['name'].invalid">
+        <input style="margin-left: 5px;" id="name" formControlName="name">
+        <div style="color: brown;font-size: small;" *ngIf="f['name'].touched && f['name'].invalid">
           <span *ngIf="f['name'].errors?.['required']">Name is required.</span>
+        </div>
+        <div style="color: brown; font-size: small;" *ngIf="formSubmitted && usernameTaken">
+          <span >Username is already taken.</span>
         </div>
       </div>
     
-      <div>
+      <div style="padding: 5px;">
         <label for="email">Email:</label>
-        <input id="email" type="email" formControlName="email">
-        <div *ngIf="f['email'].touched && f['email'].invalid">
+        <input  style="margin-left: 5px;" id="email" type="email" formControlName="email">
+        <div style="color: brown;font-size: small;" *ngIf="f['email'].touched && f['email'].invalid">
           <span *ngIf="f['email'].errors?.['required']">Email is required.</span>
           <span *ngIf="f['email'].errors?.['email']">Invalid email address.</span>
         </div>
+        <div style="color: brown;font-size: small;" *ngIf="formSubmitted && emailTaken">
+          <span>Email is already taken.</span>
+        </div>
       </div>
     
-      <div>
+      <div style="padding: 5px;">
         <label for="phone">Phone Number:</label>
-        <input id="phone" formControlName="phone">
-        <div *ngIf="f['phone'].touched && f['phone'].invalid">
+        <input style="margin-left: 5px;" id="phone" formControlName="phone">
+        <div style="color: brown;font-size: small;" *ngIf="f['phone'].touched && f['phone'].invalid">
           <span *ngIf="f['phone'].errors?.['required']">Phone number is required.</span>
           <span *ngIf="f['phone'].errors?.['pattern']">Phone number must be 10 digits.</span>
         </div>
       </div>
-      <div>
+      <div style="padding: 5px;">
         <label for="location">Location:</label>
-        <input id="location" type="password" formControlName="location">
-        <div *ngIf="f['location'].touched && f['location'].invalid">
+        <input style="margin-left: 5px;" id="location" type="password" formControlName="location">
+        <div style="color: brown;font-size: small;" *ngIf="f['location'].touched && f['location'].invalid">
           <span *ngIf="f['location'].errors?.['required']">Location is required.</span>
           <span *ngIf="f['location'].errors?.['minlength']">Location must be at least 8 characters long.</span>
         </div>
       </div>
-      <button type="submit" [disabled]="addUserForm.invalid">Submit</button>
+      <div style="padding: 5px;display: flex; justify-content: flex-end;">
+        <button type="submit" [disabled]="addUserForm.invalid">{{ isEditMode ? 'Update' : 'Submit' }}</button>
+      </div>
     </form>
   </ng-template>
 
