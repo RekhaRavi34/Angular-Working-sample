@@ -4,8 +4,7 @@ import {FirstComponent} from './first/first.component';
 import {SecondComponent} from './second/second.component';
 
 const routes: Routes = [
-  { path: '', loadChildren: () => import('./main/main.module').then(m => m.MainModule) },
-
+  
 ];
 
 @NgModule({

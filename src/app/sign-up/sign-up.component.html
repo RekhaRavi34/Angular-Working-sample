@@ -1,0 +1,42 @@
+
+<form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="username">Username:</label>
+      <input id="username" type="text" formControlName="username">
+      <div *ngIf="f['username'].touched && f['username'].invalid">
+        <span *ngIf="f['username'].errors?.['required']">Username is required.</span>
+      </div>
+    </div>
+  
+    <div>
+      <label for="password">Password:</label>
+      <input id="password" type="password" formControlName="password">
+      <div *ngIf="f['password'].touched && f['password'].invalid">
+        <span *ngIf="f['password'].errors?.['required']">Password is required.</span>
+        <span *ngIf="f['password'].errors?.['minlength']">Password must be at least 8 characters long.</span>
+        <span *ngIf="f['password'].errors?.['pattern']">Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character.</span>
+      </div>
+    </div>
+  
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" type="email" formControlName="email">
+      <div *ngIf="f['email'].touched && f['email'].invalid">
+        <span *ngIf="f['email'].errors?.['required']">Email is required.</span>
+        <span *ngIf="f['email'].errors?.['email']">Invalid email address.</span>
+      </div>
+    </div>
+  
+    <div>
+      <label for="phone">Phone Number:</label>
+      <input id="phone" type="tel" formControlName="phone">
+      <div *ngIf="f['phone'].touched && f['phone'].invalid">
+        <span *ngIf="f['phone'].errors?.['required']">Phone number is required.</span>
+        <span *ngIf="f['phone'].errors?.['pattern']">Phone number must be 10 digits.</span>
+      </div>
+    </div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+  
+    <button type="submit" [disabled]="signupForm.invalid" >Submit</button>
+  </form>

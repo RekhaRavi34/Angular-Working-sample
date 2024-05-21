@@ -1,32 +1,31 @@
 import { Injectable } from '@angular/core';
-
 @Injectable({
   providedIn: 'root'
 })
 export class HousingService {
-
-    getStudents(): any[] {
-      return [
-        {
-          ID: 'std101', FirstName: 'Preety', LastName: 'Tiwary',
-          Branch: 'CSE', DOB: '29/02/1988', Gender: 'Female'
-      },
-      {
-          ID: 'std102', FirstName: 'Anurag', LastName: 'Mohanty', 
-          Branch: 'ETC', DOB: '23/05/1989', Gender: 'Male'
-      },
-      {
-          ID: 'std103', FirstName: 'Priyanka', LastName: 'Dewangan', 
-          Branch: 'CSE', DOB: '24/07/1992', Gender: 'Female'
-      },
-      {
-          ID: 'std104', FirstName: 'Hina', LastName: 'Sharma', 
-          Branch: 'ETC', DOB: '19/08/1990', Gender: 'Female'
-      },
-      {
-          ID: 'std105', FirstName: 'Sambit', LastName: 'Satapathy', 
-          Branch: 'CSE', DOB: '12/94/1991', Gender: 'Male'
-      }
+    
+      private users = [
+        { id: 1, name: 'Rekha', email:"rekharavi1997@gmail.com", phone:8056224832, location:"Chennai" },
+        { id: 2, name: 'Ravi', email:"rekharavi17@gmail.com", phone:8056224832, location:"Chennai" },
+        { id: 3, name: 'loshi', email:"rekharavi17@gmail.com", phone:8056224832, location:"Chennai" },
+        { id: 4, name: 'nivi', email:"rekharavi173@gmail.com", phone:8056224832, location:"Chennai" }
       ];
-    }
+    
+      getUsers() {
+        return this.users;
+      }
+
+      updateUser(updatedUser: any) {
+        const index = this.users.findIndex(user => user.id === updatedUser.id);
+        if (index !== -1) {
+          this.users[index] = updatedUser;
+        }
+      }
+
+      deleteUser(id: number) {
+        this.users = this.users.filter(user => user.id !== id);
+      }
+      addUser(newUser: any) {
+        this.users.push(newUser);
+      }
 }

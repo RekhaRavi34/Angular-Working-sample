@@ -8,8 +8,8 @@ import { HousingService } from 'src/app/housing.service';
   providers:[HousingService]
 })
 export class HomeComponent {
-  students:any[];
+  
   constructor(private studentservice : HousingService){
-    this.students=this.studentservice.getStudents();
+    
   }
 }
