@@ -11,8 +11,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users">
-        <td>{{ user.id }}</td>
+      <tr *ngFor="let user of users; index as i" >
+        <td>{{ i+1 }}</td>
         <td>{{ user.name }}</td>
         <td>{{ user.email }}</td>
         <td>{{ user.phone }}</td>
@@ -20,15 +20,87 @@
         <td>
             <!-- <button class="btn btn-primary" (click)="openEditModal(user.id, user.name)">Edit</button>
             <app-modal [editedUserId]="editedUserId" [editedUserName]="editedUserName"></app-modal> -->
-            <button class="btn btn-info" (click)="editUser(user)">Edit</button>
+            <button class="btn btn-info" >Edit</button>
             <button class="btn btn-danger ml-5px" (click)="deleteUser(user)">Delete</button>
         </td>
       </tr>
+    </tbody>
+  </table>
+  <div>
+  <button class="btn  btn-outline-primary" (click)="open(editModal)" >Add User</button></div>
 
+  <ng-template #editModal>
+    <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="name">Name:</label>
+        <input id="name" formControlName="name">
+        <div *ngIf="f['name'].touched && f['name'].invalid">
+          <span *ngIf="f['name'].errors?.['required']">Name is required.</span>
+        </div>
+      </div>
+    
+      <div>
+        <label for="email">Email:</label>
+        <input id="email" type="email" formControlName="email">
+        <div *ngIf="f['email'].touched && f['email'].invalid">
+          <span *ngIf="f['email'].errors?.['required']">Email is required.</span>
+          <span *ngIf="f['email'].errors?.['email']">Invalid email address.</span>
+        </div>
+      </div>
+    
+      <div>
+        <label for="phone">Phone Number:</label>
+        <input id="phone" formControlName="phone">
+        <div *ngIf="f['phone'].touched && f['phone'].invalid">
+          <span *ngIf="f['phone'].errors?.['required']">Phone number is required.</span>
+          <span *ngIf="f['phone'].errors?.['pattern']">Phone number must be 10 digits.</span>
+        </div>
+      </div>
+      <div>
+        <label for="location">Location:</label>
+        <input id="location" type="password" formControlName="location">
+        <div *ngIf="f['location'].touched && f['location'].invalid">
+          <span *ngIf="f['location'].errors?.['required']">Location is required.</span>
+          <span *ngIf="f['location'].errors?.['minlength']">Location must be at least 8 characters long.</span>
+        </div>
+      </div>
+      <button type="submit" [disabled]="addUserForm.invalid">Submit</button>
+    </form>
+  </ng-template>
 
       <!-- using modal -->
 
-      
+      <!-- <ng-template #editModal let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title">Edit Item</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+            <form #editForm="ngForm">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" id="name" class="form-control" [(ngModel)]="selectedItem.name" name="name">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Age</label>
+                    <input type="email" id="email" class="form-control" [(ngModel)]="selectedItem.email" name="email">
+                </div>
+                <div class="mb-3">
+                  <label for="phone" class="form-label">Age</label>
+                  <input type="tel" id="phone" class="form-control" [(ngModel)]="selectedItem.phone" name="phone">
+              </div>
+              <div class="mb-3">
+                <label for="location" class="form-label">Age</label>
+                <input type="text" id="location" class="form-control" [(ngModel)]="selectedItem.location" name="location">
+            </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" (click)="modal.dismiss('cancel click')">Close</button>
+            <button type="button" class="btn btn-primary" (click)="saveChanges(modal)">Save changes</button>
+        </div>
+    </ng-template> -->
+
       <!---done using normal flow-->
 
       <!-- //To edit the row: -->

@@ -8,7 +8,7 @@ import { FirstComponent } from './first/first.component';
 import { SecondComponent } from './second/second.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { TableComponent } from './table/table.component';
-import { ModalComponent } from './modal/modal.component';
+
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
@@ -18,7 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SecondComponent,
     SignUpComponent,
     TableComponent,
-    ModalComponent
+  
   ],
   imports: [
     BrowserModule,
