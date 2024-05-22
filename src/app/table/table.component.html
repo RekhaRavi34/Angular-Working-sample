@@ -21,7 +21,7 @@
             <!-- <button class="btn btn-primary" (click)="openEditModal(user.id, user.name)">Edit</button>
             <app-modal [editedUserId]="editedUserId" [editedUserName]="editedUserName"></app-modal> -->
             <button class="btn btn-info" (click)="open(editModal, i)">Edit</button>
-            <button class="btn btn-danger ml-5px" (click)="deleteUser(i)">Delete</button>
+            <button class="btn btn-danger ml-5px" (click)="open(deleteModal,i)">Delete</button>
         </td>
       </tr>
     </tbody>
@@ -30,7 +30,7 @@
   <button class="btn  btn-outline-primary" (click)="open(editModal)" >Add User</button></div>
 
   <ng-template #editModal>
-    <form [formGroup]="addUserForm" (ngSubmit)="onSubmit()" style="padding: 10px;">
+    <form [formGroup]="addUserForm" (ngSubmit)="onSubmit() " style="padding: 10px;">
 
         <button (click)="closeModal()" style="text-align: end;padding-right: 10px;">x</button>
         <div style="text-align: center;padding-bottom: 10px;">
@@ -39,7 +39,7 @@
       <div style="padding: 5px;">
         <label for="name">Name:</label>
         <input style="margin-left: 5px;" id="name" formControlName="name">
-        <div style="color: brown;font-size: small;" *ngIf="f['name'].touched && f['name'].invalid">
+        <div style="color: brown;font-size: small;" *ngIf=" f['name'].invalid && formSubmitted">
           <span *ngIf="f['name'].errors?.['required']">Name is required.</span>
         </div>
         <div style="color: brown; font-size: small;" *ngIf="formSubmitted && usernameTaken">
@@ -50,9 +50,9 @@
       <div style="padding: 5px;">
         <label for="email">Email:</label>
         <input  style="margin-left: 5px;" id="email" type="email" formControlName="email">
-        <div style="color: brown;font-size: small;" *ngIf="f['email'].touched && f['email'].invalid">
-          <span *ngIf="f['email'].errors?.['required']">Email is required.</span>
-          <span *ngIf="f['email'].errors?.['email']">Invalid email address.</span>
+        <div style="color: brown;font-size: small;" *ngIf="f['email'].invalid && formSubmitted">
+          <span *ngIf="f['email'].errors?.['required'] ">Email is required.</span>
+          <span *ngIf="f['email'].errors?.['email'] ">Invalid email address.</span>
         </div>
         <div style="color: brown;font-size: small;" *ngIf="formSubmitted && emailTaken">
           <span>Email is already taken.</span>
@@ -62,23 +62,36 @@
       <div style="padding: 5px;">
         <label for="phone">Phone Number:</label>
         <input style="margin-left: 5px;" id="phone" formControlName="phone">
-        <div style="color: brown;font-size: small;" *ngIf="f['phone'].touched && f['phone'].invalid">
-          <span *ngIf="f['phone'].errors?.['required']">Phone number is required.</span>
-          <span *ngIf="f['phone'].errors?.['pattern']">Phone number must be 10 digits.</span>
+        <div style="color: brown;font-size: small;" *ngIf="f['phone'].invalid && formSubmitted">
+          <span *ngIf="f['phone'].errors?.['required'] ">Phone number is required.</span>
+          <span *ngIf="f['phone'].errors?.['pattern'] ">Phone number must be 10 digits.</span>
         </div>
       </div>
       <div style="padding: 5px;">
         <label for="location">Location:</label>
-        <input style="margin-left: 5px;" id="location" type="password" formControlName="location">
-        <div style="color: brown;font-size: small;" *ngIf="f['location'].touched && f['location'].invalid">
+        <!-- <input style="margin-left: 5px;" id="location" type="password" > -->
+        <textarea style="margin-left: 5px;" id="location" name="location" rows="4" cols="50" formControlName="location"></textarea>
+        <div style="color: brown;font-size: small;" *ngIf="f['location'].invalid && formSubmitted">
           <span *ngIf="f['location'].errors?.['required']">Location is required.</span>
-          <span *ngIf="f['location'].errors?.['minlength']">Location must be at least 8 characters long.</span>
+          <span *ngIf="f['location'].errors?.['minlength'] ">Location must be at least 8 characters long.</span>
+          
         </div>
       </div>
       <div style="padding: 5px;display: flex; justify-content: flex-end;">
-        <button type="submit" [disabled]="addUserForm.invalid">{{ isEditMode ? 'Update' : 'Submit' }}</button>
+        <button type="submit">{{ isEditMode ? 'Update' : 'Submit' }}</button>
       </div>
     </form>
+  </ng-template>
+  <ng-template  #deleteModal>
+    <div style="padding: 10px;">
+      <div>
+        <p>Do you wish to delete?</p>
+      </div>
+      <div style="display: flex;justify-content: space-around;">
+        <button  class="btn btn-primary">Cancel</button>
+        <button class="btn btn-danger" (click)="deleteUser()">Delete</button>
+      </div>
+    </div>
   </ng-template>
 
       <!-- using modal -->

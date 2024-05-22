@@ -10,7 +10,11 @@ export class HousingService {
   }
 
   deleteUser(id: number) {
-    this.users = this.users.filter((user) => user.id !== id);
+    const halfBeforeTheUnwantedElement = this.users.slice(0, id)
+
+const halfAfterTheUnwantedElement = this.users.slice(id+1);
+
+this.users= halfBeforeTheUnwantedElement.concat(halfAfterTheUnwantedElement);
   }
 
   addUser(user: any) {

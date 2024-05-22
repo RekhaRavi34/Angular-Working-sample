@@ -17,6 +17,7 @@ export class TableComponent implements OnInit {
   addUserForm: FormGroup;
   isEditMode: boolean = false;
   editedUserIndex: number | null = null;
+  isUserFormVaild: boolean = false
 
   constructor(
     private studentservice: HousingService,
@@ -39,8 +40,9 @@ export class TableComponent implements OnInit {
     this.formSubmitted = true;
     this.usernameTaken = false;
     this.emailTaken = false;
-
+    console.log(this.f['phone'].errors?.['required'] && this.formSubmitted)
     if (this.addUserForm.valid) {
+      
       const newUser = this.addUserForm.value;
       if (
         this.isUsernameOrEmailTaken(
@@ -56,10 +58,12 @@ export class TableComponent implements OnInit {
           this.emailTaken = true;
         }
       } else {
+        this.isUserFormVaild=true;
         if (this.isEditMode && this.editedUserIndex !== null) {
           this.users[this.editedUserIndex] = newUser;
         } else {
           this.users.push(newUser);
+          console.log(this.studentservice.users);
         }
         this.formSubmitted = false;
         if (this.modalRef) {
@@ -100,9 +104,14 @@ export class TableComponent implements OnInit {
     this.users = this.studentservice.getUsers();
   }
 
-  deleteUser(user: any) {
-    this.studentservice.deleteUser(user.id);
+  deleteUser() {
+    console.log(this.editedUserIndex);
+    this.studentservice.deleteUser(this.editedUserIndex);
+    console.log(this.studentservice.users)
     this.loadUsers();
+    if (this.modalRef) {
+      this.modalRef.close();
+    }
   }
 
   open(template: TemplateRef<any>, userIndex: number | null = null) {
@@ -114,13 +123,16 @@ export class TableComponent implements OnInit {
     } else {
       this.addUserForm.reset();
     }
-    this.modalRef = this.modal.open(template);
+
+    // passing configuration to prevent modal from closing on keboard and clicking
+    this.modalRef = this.modal.open(template, {backdrop: 'static',});
     // modalRef.componentInstance.name = 'World';
   }
 
   closeModal() {
     if (this.modalRef) {
       this.modalRef.close();
+      this.addUserForm.reset();
     }
   }
 
