@@ -1,0 +1,749 @@
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class DataService {
+
+  constructor() { }
+  data = {
+    "workflowHistory": {
+        "transactions": {
+            "211": [
+                {
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "originalPremium": 81765.2,
+                    "newPremium": null,
+                    "previousWorkflow": "-",
+                    "currentWorkflow": "quote_generated",
+                    "workflowTransactionId": 223,
+                    "optionName": "option 1",
+                    "optionPremium": 81765.18,
+                    "optionPremiumGWP": null,
+                    "generatedBy": 2,
+                    "generatedByRole": "distributor",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:09:40.000Z",
+                    "quoteWorkflowCreatedDateUAE": "2024-04-01 10:39:40",
+                    "quoteId": 86,
+                    "originalQuoteId": 86,
+                    "newQuoteId": 86,
+                    "workflowtransactionCreatedDate": "2024-04-01T01:09:40.000Z",
+                    "quoteWorkflowId": 211,
+                    "quoteType": "indicative",
+                    "riskType": "maf_group",
+                    "version": 1,
+                    "specialRiskType": null
+                }
+            ],
+            "212": [
+                {
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "originalPremium": 81765.2,
+                    "newPremium": 81765.2,
+                    "previousWorkflow": "quote_generated",
+                    "currentWorkflow": "edit_quote",
+                    "workflowTransactionId": 224,
+                    "optionName": "option 1",
+                    "optionPremium": 81765.18,
+                    "optionPremiumGWP": null,
+                    "generatedBy": null,
+                    "generatedByRole": null,
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:20:02.000Z",
+                    "quoteWorkflowCreatedDateUAE": "2024-04-01 10:50:02",
+                    "quoteId": 87,
+                    "originalQuoteId": 87,
+                    "newQuoteId": 87,
+                    "workflowtransactionCreatedDate": "2024-04-01T01:20:02.000Z",
+                    "quoteWorkflowId": 212,
+                    "quoteType": "indicative",
+                    "riskType": "maf_group",
+                    "version": 2,
+                    "specialRiskType": null
+                }
+            ],
+            "213": [
+                {
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "originalPremium": null,
+                    "newPremium": null,
+                    "previousWorkflow": "edit_quote",
+                    "currentWorkflow": "quote_sent",
+                    "workflowTransactionId": 225,
+                    "optionName": "option 1",
+                    "optionPremium": 81765.18,
+                    "optionPremiumGWP": null,
+                    "generatedBy": null,
+                    "generatedByRole": null,
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:20:03.000Z",
+                    "quoteWorkflowCreatedDateUAE": "2024-04-01 10:50:03",
+                    "quoteId": 87,
+                    "originalQuoteId": null,
+                    "newQuoteId": null,
+                    "workflowtransactionCreatedDate": "2024-04-01T01:20:04.000Z",
+                    "quoteWorkflowId": 213,
+                    "quoteType": "indicative",
+                    "riskType": "maf_group",
+                    "version": 2,
+                    "specialRiskType": null
+                }
+            ],
+            "214": [
+                {
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "originalPremium": null,
+                    "newPremium": null,
+                    "previousWorkflow": "quote_sent",
+                    "currentWorkflow": "maf_group_uploaded",
+                    "workflowTransactionId": null,
+                    "optionName": null,
+                    "optionPremium": null,
+                    "optionPremiumGWP": null,
+                    "generatedBy": 2,
+                    "generatedByRole": "distributor",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:20:52.000Z",
+                    "quoteWorkflowCreatedDateUAE": "2024-04-01 10:50:52",
+                    "quoteId": null,
+                    "originalQuoteId": null,
+                    "newQuoteId": null,
+                    "workflowtransactionCreatedDate": null,
+                    "quoteWorkflowId": 214,
+                    "quoteType": null,
+                    "riskType": null,
+                    "version": null,
+                    "specialRiskType": null
+                }
+            ],
+            "215": [
+                {
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "originalPremium": null,
+                    "newPremium": null,
+                    "previousWorkflow": "maf_group_uploaded",
+                    "currentWorkflow": "refer_insurer",
+                    "workflowTransactionId": 226,
+                    "optionName": "option 1",
+                    "optionPremium": 81765.18,
+                    "optionPremiumGWP": null,
+                    "generatedBy": 2,
+                    "generatedByRole": "distributor",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:21:23.000Z",
+                    "quoteWorkflowCreatedDateUAE": "2024-04-01 10:51:23",
+                    "quoteId": 87,
+                    "originalQuoteId": null,
+                    "newQuoteId": null,
+                    "workflowtransactionCreatedDate": "2024-04-01T01:21:24.000Z",
+                    "quoteWorkflowId": 215,
+                    "quoteType": "indicative",
+                    "riskType": "maf_group",
+                    "version": 2,
+                    "specialRiskType": null
+                }
+            ],
+            "216": [
+                {
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "originalPremium": null,
+                    "newPremium": null,
+                    "previousWorkflow": "refer_insurer",
+                    "currentWorkflow": "message",
+                    "workflowTransactionId": null,
+                    "optionName": null,
+                    "optionPremium": null,
+                    "optionPremiumGWP": null,
+                    "generatedBy": 2,
+                    "generatedByRole": "distributor",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:21:32.000Z",
+                    "quoteWorkflowCreatedDateUAE": "2024-04-01 10:51:32",
+                    "quoteId": null,
+                    "originalQuoteId": null,
+                    "newQuoteId": null,
+                    "workflowtransactionCreatedDate": null,
+                    "quoteWorkflowId": 216,
+                    "quoteType": null,
+                    "riskType": null,
+                    "version": null,
+                    "specialRiskType": null
+                }
+            ],
+            "217": [
+                {
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "originalPremium": null,
+                    "newPremium": null,
+                    "previousWorkflow": "refer_insurer",
+                    "currentWorkflow": "insurer_requested_info",
+                    "workflowTransactionId": 227,
+                    "optionName": "option 1",
+                    "optionPremium": 81765.18,
+                    "optionPremiumGWP": null,
+                    "generatedBy": 1,
+                    "generatedByRole": "insurer",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:22:24.000Z",
+                    "quoteWorkflowCreatedDateUAE": "2024-04-01 10:52:24",
+                    "quoteId": 87,
+                    "originalQuoteId": null,
+                    "newQuoteId": null,
+                    "workflowtransactionCreatedDate": "2024-04-01T01:22:24.000Z",
+                    "quoteWorkflowId": 217,
+                    "quoteType": "indicative",
+                    "riskType": "maf_group",
+                    "version": 2,
+                    "specialRiskType": null
+                }
+            ],
+            "218": [
+                {
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "originalPremium": null,
+                    "newPremium": null,
+                    "previousWorkflow": "insurer_requested_info",
+                    "currentWorkflow": "requested_info_submitted",
+                    "workflowTransactionId": 228,
+                    "optionName": "option 1",
+                    "optionPremium": 81765.18,
+                    "optionPremiumGWP": null,
+                    "generatedBy": 2,
+                    "generatedByRole": "distributor",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:23:18.000Z",
+                    "quoteWorkflowCreatedDateUAE": "2024-04-01 10:53:18",
+                    "quoteId": 87,
+                    "originalQuoteId": null,
+                    "newQuoteId": null,
+                    "workflowtransactionCreatedDate": "2024-04-01T01:23:19.000Z",
+                    "quoteWorkflowId": 218,
+                    "quoteType": "indicative",
+                    "riskType": "maf_group",
+                    "version": 2,
+                    "specialRiskType": null
+                },
+                {
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "originalPremium": null,
+                    "newPremium": null,
+                    "previousWorkflow": "insurer_requested_info",
+                    "currentWorkflow": "requested_info_submitted",
+                    "workflowTransactionId": 229,
+                    "optionName": "option 1",
+                    "optionPremium": 81765.18,
+                    "optionPremiumGWP": null,
+                    "generatedBy": 2,
+                    "generatedByRole": "distributor",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:23:18.000Z",
+                    "quoteWorkflowCreatedDateUAE": "2024-04-01 10:53:18",
+                    "quoteId": 87,
+                    "originalQuoteId": null,
+                    "newQuoteId": null,
+                    "workflowtransactionCreatedDate": "2024-04-01T01:23:19.000Z",
+                    "quoteWorkflowId": 218,
+                    "quoteType": "indicative",
+                    "riskType": "maf_group",
+                    "version": 2,
+                    "specialRiskType": null
+                }
+            ],
+            "219": [
+                {
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "originalPremium": 81765.2,
+                    "newPremium": 94915.2,
+                    "previousWorkflow": "requested_info_submitted",
+                    "currentWorkflow": "revision_done",
+                    "workflowTransactionId": 230,
+                    "optionName": "option 1",
+                    "optionPremium": 94915.18,
+                    "optionPremiumGWP": null,
+                    "generatedBy": 1,
+                    "generatedByRole": "insurer",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:24:41.000Z",
+                    "quoteWorkflowCreatedDateUAE": "2024-04-01 10:54:41",
+                    "quoteId": 88,
+                    "originalQuoteId": 87,
+                    "newQuoteId": 88,
+                    "workflowtransactionCreatedDate": "2024-04-01T01:24:41.000Z",
+                    "quoteWorkflowId": 219,
+                    "quoteType": "binding",
+                    "riskType": "maf_group",
+                    "version": 2,
+                    "specialRiskType": null
+                }
+            ],
+            "220": [
+                {
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "originalPremium": null,
+                    "newPremium": null,
+                    "previousWorkflow": "revision_done",
+                    "currentWorkflow": "refer_insurer_discount",
+                    "workflowTransactionId": 231,
+                    "optionName": "option 1",
+                    "optionPremium": 94915.18,
+                    "optionPremiumGWP": null,
+                    "generatedBy": 2,
+                    "generatedByRole": "distributor",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:32:57.000Z",
+                    "quoteWorkflowCreatedDateUAE": "2024-04-01 11:02:57",
+                    "quoteId": 88,
+                    "originalQuoteId": null,
+                    "newQuoteId": null,
+                    "workflowtransactionCreatedDate": "2024-04-01T01:32:58.000Z",
+                    "quoteWorkflowId": 220,
+                    "quoteType": "binding",
+                    "riskType": "maf_group",
+                    "version": 2,
+                    "specialRiskType": null
+                }
+            ],
+            "221": [
+                {
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "originalPremium": 94915.2,
+                    "newPremium": 64915.2,
+                    "previousWorkflow": "refer_insurer_discount",
+                    "currentWorkflow": "revision_done",
+                    "workflowTransactionId": 232,
+                    "optionName": "option 1",
+                    "optionPremium": 64915.2,
+                    "optionPremiumGWP": null,
+                    "generatedBy": 1,
+                    "generatedByRole": "insurer",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:34:26.000Z",
+                    "quoteWorkflowCreatedDateUAE": "2024-04-01 11:04:26",
+                    "quoteId": 89,
+                    "originalQuoteId": 88,
+                    "newQuoteId": 89,
+                    "workflowtransactionCreatedDate": "2024-04-01T01:34:26.000Z",
+                    "quoteWorkflowId": 221,
+                    "quoteType": "binding",
+                    "riskType": "maf_group",
+                    "version": 2,
+                    "specialRiskType": null
+                }
+            ],
+            "222": [
+                {
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "originalPremium": null,
+                    "newPremium": null,
+                    "previousWorkflow": "revision_done",
+                    "currentWorkflow": "message",
+                    "workflowTransactionId": null,
+                    "optionName": null,
+                    "optionPremium": null,
+                    "optionPremiumGWP": null,
+                    "generatedBy": 1,
+                    "generatedByRole": "insurer",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:34:53.000Z",
+                    "quoteWorkflowCreatedDateUAE": "2024-04-01 11:04:53",
+                    "quoteId": null,
+                    "originalQuoteId": null,
+                    "newQuoteId": null,
+                    "workflowtransactionCreatedDate": null,
+                    "quoteWorkflowId": 222,
+                    "quoteType": null,
+                    "riskType": null,
+                    "version": null,
+                    "specialRiskType": null
+                }
+            ],
+            "223": [
+                {
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "originalPremium": null,
+                    "newPremium": null,
+                    "previousWorkflow": "quote_generated",
+                    "currentWorkflow": "version_changed",
+                    "workflowTransactionId": 233,
+                    "optionName": "option 1",
+                    "optionPremium": 81765.18,
+                    "optionPremiumGWP": null,
+                    "generatedBy": 2,
+                    "generatedByRole": "distributor",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:35:37.000Z",
+                    "quoteWorkflowCreatedDateUAE": "2024-04-01 11:05:37",
+                    "quoteId": 86,
+                    "originalQuoteId": null,
+                    "newQuoteId": null,
+                    "workflowtransactionCreatedDate": "2024-04-01T01:35:38.000Z",
+                    "quoteWorkflowId": 223,
+                    "quoteType": "indicative",
+                    "riskType": "maf_group",
+                    "version": 1,
+                    "specialRiskType": null
+                }
+            ],
+            "224": [
+                {
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "originalPremium": 81765.2,
+                    "newPremium": 81765.2,
+                    "previousWorkflow": "version_changed",
+                    "currentWorkflow": "quote_generated",
+                    "workflowTransactionId": 234,
+                    "optionName": "option 1",
+                    "optionPremium": 81765.18,
+                    "optionPremiumGWP": null,
+                    "generatedBy": 2,
+                    "generatedByRole": "distributor",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:35:39.000Z",
+                    "quoteWorkflowCreatedDateUAE": "2024-04-01 11:05:39",
+                    "quoteId": 86,
+                    "originalQuoteId": 86,
+                    "newQuoteId": 86,
+                    "workflowtransactionCreatedDate": "2024-04-01T01:35:39.000Z",
+                    "quoteWorkflowId": 224,
+                    "quoteType": "indicative",
+                    "riskType": "maf_group",
+                    "version": 1,
+                    "specialRiskType": null
+                }
+            ],
+            "225": [
+                {
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "originalPremium": null,
+                    "newPremium": null,
+                    "previousWorkflow": "quote_generated",
+                    "currentWorkflow": "quote_sent",
+                    "workflowTransactionId": 235,
+                    "optionName": "option 1",
+                    "optionPremium": 81765.18,
+                    "optionPremiumGWP": null,
+                    "generatedBy": 2,
+                    "generatedByRole": "distributor",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:36:36.000Z",
+                    "quoteWorkflowCreatedDateUAE": "2024-04-01 11:06:36",
+                    "quoteId": 86,
+                    "originalQuoteId": null,
+                    "newQuoteId": null,
+                    "workflowtransactionCreatedDate": "2024-04-01T01:36:37.000Z",
+                    "quoteWorkflowId": 225,
+                    "quoteType": "indicative",
+                    "riskType": "maf_group",
+                    "version": 1,
+                    "specialRiskType": null
+                },
+                {
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "originalPremium": null,
+                    "newPremium": null,
+                    "previousWorkflow": "quote_generated",
+                    "currentWorkflow": "quote_sent",
+                    "workflowTransactionId": 236,
+                    "optionName": "option 1",
+                    "optionPremium": 81765.18,
+                    "optionPremiumGWP": null,
+                    "generatedBy": 2,
+                    "generatedByRole": "distributor",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:36:36.000Z",
+                    "quoteWorkflowCreatedDateUAE": "2024-04-01 11:06:36",
+                    "quoteId": 86,
+                    "originalQuoteId": null,
+                    "newQuoteId": null,
+                    "workflowtransactionCreatedDate": "2024-04-01T01:36:37.000Z",
+                    "quoteWorkflowId": 225,
+                    "quoteType": "indicative",
+                    "riskType": "maf_group",
+                    "version": 1,
+                    "specialRiskType": null
+                }
+            ],
+            "226": [
+                {
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "originalPremium": null,
+                    "newPremium": null,
+                    "previousWorkflow": "quote_sent",
+                    "currentWorkflow": "maf_group_uploaded",
+                    "workflowTransactionId": null,
+                    "optionName": null,
+                    "optionPremium": null,
+                    "optionPremiumGWP": null,
+                    "generatedBy": 2,
+                    "generatedByRole": "distributor",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:37:26.000Z",
+                    "quoteWorkflowCreatedDateUAE": "2024-04-01 11:07:26",
+                    "quoteId": null,
+                    "originalQuoteId": null,
+                    "newQuoteId": null,
+                    "workflowtransactionCreatedDate": null,
+                    "quoteWorkflowId": 226,
+                    "quoteType": null,
+                    "riskType": null,
+                    "version": null,
+                    "specialRiskType": null
+                }
+            ],
+            "227": [
+                {
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "originalPremium": null,
+                    "newPremium": null,
+                    "previousWorkflow": "revision_done",
+                    "currentWorkflow": "version_changed",
+                    "workflowTransactionId": 237,
+                    "optionName": "option 1",
+                    "optionPremium": 64915.2,
+                    "optionPremiumGWP": null,
+                    "generatedBy": 2,
+                    "generatedByRole": "distributor",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:41:42.000Z",
+                    "quoteWorkflowCreatedDateUAE": "2024-04-01 11:11:42",
+                    "quoteId": 89,
+                    "originalQuoteId": null,
+                    "newQuoteId": null,
+                    "workflowtransactionCreatedDate": "2024-04-01T01:41:43.000Z",
+                    "quoteWorkflowId": 227,
+                    "quoteType": "binding",
+                    "riskType": "maf_group",
+                    "version": 2,
+                    "specialRiskType": null
+                }
+            ],
+            "228": [
+                {
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "originalPremium": 64915.2,
+                    "newPremium": 64915.2,
+                    "previousWorkflow": "version_changed",
+                    "currentWorkflow": "revision_done",
+                    "workflowTransactionId": 238,
+                    "optionName": "option 1",
+                    "optionPremium": 64915.2,
+                    "optionPremiumGWP": null,
+                    "generatedBy": 2,
+                    "generatedByRole": "distributor",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:41:43.000Z",
+                    "quoteWorkflowCreatedDateUAE": "2024-04-01 11:11:43",
+                    "quoteId": 89,
+                    "originalQuoteId": 89,
+                    "newQuoteId": 89,
+                    "workflowtransactionCreatedDate": "2024-04-01T01:41:43.000Z",
+                    "quoteWorkflowId": 228,
+                    "quoteType": "binding",
+                    "riskType": "maf_group",
+                    "version": 2,
+                    "specialRiskType": null
+                }
+            ],
+            "229": [
+                {
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "originalPremium": null,
+                    "newPremium": null,
+                    "previousWorkflow": "revision_done",
+                    "currentWorkflow": "customer_accepted",
+                    "workflowTransactionId": 239,
+                    "optionName": "option 1",
+                    "optionPremium": 64915.2,
+                    "optionPremiumGWP": null,
+                    "generatedBy": 2,
+                    "generatedByRole": "distributor",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:43:07.000Z",
+                    "quoteWorkflowCreatedDateUAE": "2024-04-01 11:13:07",
+                    "quoteId": 89,
+                    "originalQuoteId": null,
+                    "newQuoteId": null,
+                    "workflowtransactionCreatedDate": "2024-04-01T01:43:07.000Z",
+                    "quoteWorkflowId": 229,
+                    "quoteType": "binding",
+                    "riskType": "maf_group",
+                    "version": 2,
+                    "specialRiskType": null
+                }
+            ]
+        },
+        "chatsAndDocuments": {
+            "215": [
+                {
+                    "messageId": 46,
+                    "message": "refer",
+                    "messageLogsCreatedDate": "2024-04-01T01:21:24.000Z",
+                    "quoteWorkflowId": 215,
+                    "generatedBy": 2,
+                    "generatedByRole": "distributor",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:21:23.000Z",
+                    "previousWorkflow": "maf_group_uploaded",
+                    "currentWorkflow": "refer_insurer",
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "currency": "AED",
+                    "documents": [
+                        []
+                    ]
+                }
+            ],
+            "216": [
+                {
+                    "messageId": 47,
+                    "message": "refer",
+                    "messageLogsCreatedDate": "2024-04-01T01:21:32.000Z",
+                    "quoteWorkflowId": 216,
+                    "generatedBy": 2,
+                    "generatedByRole": "distributor",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:21:32.000Z",
+                    "previousWorkflow": "refer_insurer",
+                    "currentWorkflow": "message",
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "currency": "AED",
+                    "documents": [
+                        []
+                    ]
+                }
+            ],
+            "217": [
+                {
+                    "messageId": 48,
+                    "message": "send",
+                    "messageLogsCreatedDate": "2024-04-01T01:22:25.000Z",
+                    "quoteWorkflowId": 217,
+                    "generatedBy": 1,
+                    "generatedByRole": "insurer",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:22:24.000Z",
+                    "previousWorkflow": "refer_insurer",
+                    "currentWorkflow": "insurer_requested_info",
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "currency": "AED",
+                    "documents": [
+                        [
+                            {
+                                "documentId": 35,
+                                "documentType": "Ask Further Documents",
+                                "fileName": "mixedcase.xlsx",
+                                "documentName": null,
+                                "filePath": "sme-medical/STAGING-TEST-SME-0424-1-000001/48/0/mixedcase.xlsx",
+                                "documentCreatedDate": "2024-04-01T01:22:25.000Z",
+                                "folderType": "chat_documents"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "218": [
+                {
+                    "messageId": 49,
+                    "message": "submitted",
+                    "messageLogsCreatedDate": "2024-04-01T01:23:19.000Z",
+                    "quoteWorkflowId": 218,
+                    "generatedBy": 2,
+                    "generatedByRole": "distributor",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:23:18.000Z",
+                    "previousWorkflow": "insurer_requested_info",
+                    "currentWorkflow": "requested_info_submitted",
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "currency": "AED",
+                    "documents": [
+                        [
+                            {
+                                "documentId": 36,
+                                "documentType": "Submit Documents",
+                                "fileName": "mixedcase.xlsx",
+                                "documentName": null,
+                                "filePath": "sme-medical/STAGING-TEST-SME-0424-1-000001/49/0/mixedcase.xlsx",
+                                "documentCreatedDate": "2024-04-01T01:23:20.000Z",
+                                "folderType": "chat_documents"
+                            }
+                        ]
+                    ]
+                }
+            ],
+            "220": [
+                {
+                    "messageId": 50,
+                    "message": "discount",
+                    "messageLogsCreatedDate": "2024-04-01T01:32:58.000Z",
+                    "quoteWorkflowId": 220,
+                    "generatedBy": 2,
+                    "generatedByRole": "distributor",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:32:57.000Z",
+                    "previousWorkflow": "revision_done",
+                    "currentWorkflow": "refer_insurer_discount",
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "currency": "AED",
+                    "documents": [
+                        []
+                    ]
+                }
+            ],
+            "222": [
+                {
+                    "messageId": 51,
+                    "message": "test",
+                    "messageLogsCreatedDate": "2024-04-01T01:34:53.000Z",
+                    "quoteWorkflowId": 222,
+                    "generatedBy": 1,
+                    "generatedByRole": "insurer",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:34:53.000Z",
+                    "previousWorkflow": "revision_done",
+                    "currentWorkflow": "message",
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "currency": "AED",
+                    "documents": [
+                        []
+                    ]
+                }
+            ],
+            "229": [
+                {
+                    "messageId": 52,
+                    "message": "Company documents uploaded",
+                    "messageLogsCreatedDate": "2024-04-01T01:43:07.000Z",
+                    "quoteWorkflowId": 229,
+                    "generatedBy": 2,
+                    "generatedByRole": "distributor",
+                    "quoteWorkflowCreatedDate": "2024-04-01T01:43:07.000Z",
+                    "previousWorkflow": "revision_done",
+                    "currentWorkflow": "customer_accepted",
+                    "clientReferenceNumber": "STAGING-TEST-SME-0424-1-000001",
+                    "currency": "AED",
+                    "documents": [
+                        [
+                            {
+                                "documentId": 37,
+                                "documentType": "Customer Accept",
+                                "fileName": "mixedcase.xlsx",
+                                "documentName": "Test",
+                                "filePath": "sme-medical/STAGING-TEST-SME-0424-1-000001/0/Test/mixedcase.xlsx",
+                                "documentCreatedDate": "2024-04-01T01:42:38.000Z",
+                                "folderType": "company_documents"
+                            },
+                            {
+                                "documentId": 38,
+                                "documentType": "Customer Accept",
+                                "fileName": "mixedcase.xlsx",
+                                "documentName": "s",
+                                "filePath": "sme-medical/STAGING-TEST-SME-0424-1-000001/0/s/mixedcase.xlsx",
+                                "documentCreatedDate": "2024-04-01T01:42:47.000Z",
+                                "folderType": "company_documents"
+                            },
+                            {
+                                "documentId": 39,
+                                "documentType": "Customer Accept",
+                                "fileName": "mixedcase.xlsx",
+                                "documentName": "test ref",
+                                "filePath": "sme-medical/STAGING-TEST-SME-0424-1-000001/0/test ref/mixedcase.xlsx",
+                                "documentCreatedDate": "2024-04-01T01:42:55.000Z",
+                                "folderType": "company_documents"
+                            },
+                            {
+                                "documentId": 40,
+                                "documentType": "Customer Accept",
+                                "fileName": "mixedcase.xlsx",
+                                "documentName": "maf-document",
+                                "filePath": "sme-medical/STAGING-TEST-SME-0424-1-000001/0/maf-document/mixedcase.xlsx",
+                                "documentCreatedDate": "2024-04-01T01:43:01.000Z",
+                                "folderType": "company_documents"
+                            }
+                        ]
+                    ]
+                }
+            ]
+        }
+    },
+    "nextFlow": {
+        "response": [],
+        "message": "No data found.",
+        "statusCode": 200
+    },
+    "companyName": "test",
+    "tradeLicenseNumber": "test"
+}
+}

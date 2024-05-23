@@ -11,7 +11,8 @@ import { TableComponent } from './table/table.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SampleComponent } from './sample/sample.component';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule} from '@angular/common/http';
+import { JsontransComponent } from './jsontrans/jsontrans.component'
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import {HttpClientModule} from '@angular/common/http'
     SignUpComponent,
     TableComponent,
     SampleComponent,
+    JsontransComponent,
   
   ],
   imports: [
