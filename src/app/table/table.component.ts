@@ -13,30 +13,30 @@ export class TableComponent implements OnInit {
   usernameTaken: boolean = false;
   emailTaken: boolean = false;
   formSubmitted: boolean = false;
+  isEditMode: boolean = false;
+  editedUserId: number | null = null;
   modalRef: NgbModalRef | null = null;
   addUserForm: FormGroup;
-  isEditMode: boolean = false;
-  editedUserIndex: number | null = null;
   isUserFormVaild: boolean = false
 
   constructor(
-    private studentservice: HousingService,
     private modal: NgbModal,
+    private studentservice: HousingService,
     private fb: FormBuilder
-  ) {
+    
+  ) { 
     this.addUserForm = this.fb.group({
       name: ['', Validators.required],
-      location: ['', [Validators.required, Validators.minLength(8)]],
       email: ['', [Validators.required, Validators.email]],
       phone: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      address: ['', [Validators.required, Validators.minLength(8)]],
     });
   }
 
   get f() {
     return this.addUserForm.controls;
   }
-
-  onSubmit() {
+  async onSubmit() {
     this.formSubmitted = true;
     this.usernameTaken = false;
     this.emailTaken = false;
@@ -44,25 +44,33 @@ export class TableComponent implements OnInit {
     if (this.addUserForm.valid) {
       
       const newUser = this.addUserForm.value;
+      console.log(newUser)
       if (
         this.isUsernameOrEmailTaken(
           newUser.name,
           newUser.email,
-          this.editedUserIndex
+          this.editedUserId
         )
       ) {
-        if (this.isUsernameTaken(newUser.name, this.editedUserIndex)) {
+        if (this.isUsernameTaken(newUser.name, this.editedUserId)) {
           this.usernameTaken = true;
         }
-        if (this.isEmailTaken(newUser.email, this.editedUserIndex)) {
+        if (this.isEmailTaken(newUser.email, this.editedUserId)) {
           this.emailTaken = true;
         }
       } else {
         this.isUserFormVaild=true;
-        if (this.isEditMode && this.editedUserIndex !== null) {
-          this.users[this.editedUserIndex] = newUser;
+        if (this.isEditMode && this.editedUserId !== null) {
+          
+          await this.studentservice.updateUser(newUser, this.editedUserId);
+          await this.loadUsers();
         } else {
-          this.users.push(newUser);
+          try{
+            await this.studentservice.addUser(newUser);
+            await this.loadUsers();
+          }catch(error){
+            console.log(error);
+          }
           console.log(this.studentservice.users);
         }
         this.formSubmitted = false;
@@ -76,50 +84,66 @@ export class TableComponent implements OnInit {
   isUsernameOrEmailTaken(
     name: string,
     email: string,
-    editedUserIndex: number | null
+    editedUserId: number | null
   ): boolean {
     return (
-      this.isUsernameTaken(name, editedUserIndex) ||
-      this.isEmailTaken(email, editedUserIndex)
+      this.isUsernameTaken(name, editedUserId) ||
+      this.isEmailTaken(email, editedUserId)
     );
   }
 
-  isUsernameTaken(name: string, editedUserIndex: number | null): boolean {
+  isUsernameTaken(name: string, editedUserId: number | null): boolean {
     return this.users.some(
-      (user, index) => user.name === name && index !== editedUserIndex
+      (user, index) => user.name === name && user.id !== editedUserId
     );
   }
 
-  isEmailTaken(email: string, editedUserIndex: number | null): boolean {
+  isEmailTaken(email: string, editedUserId: number | null): boolean {
     return this.users.some(
-      (user, index) => user.email === email && index !== editedUserIndex
+      (user, index) => user.email === email && user.id !== editedUserId
     );
   }
 
-  ngOnInit() {
-    this.loadUsers();
+  async ngOnInit() {
+   try{
+    await this.loadUsers();
+    console.log(this.users)
+   }catch(error){
+    console.log(error);
+   }
   }
-
-  loadUsers() {
-    this.users = this.studentservice.getUsers();
+  
+/// as promise is returned we use async and await in here.
+  async loadUsers() {
+    this.users  = await this.studentservice.fetchData();
   }
-
-  deleteUser() {
-    console.log(this.editedUserIndex);
-    this.studentservice.deleteUser(this.editedUserIndex);
-    console.log(this.studentservice.users)
-    this.loadUsers();
+ 
+   async deleteUser() {
+    try{
+      await this.studentservice.deleteData(this.editedUserId);
+      await this.loadUsers();
+    }
+    catch(error){
+      console.log(error)
+    }
     if (this.modalRef) {
       this.modalRef.close();
     }
+
   }
 
-  open(template: TemplateRef<any>, userIndex: number | null = null) {
-    this.isEditMode = userIndex !== null;
-    this.editedUserIndex = userIndex;
-    if (this.isEditMode && userIndex !== null) {
-      const user = this.users[userIndex];
-      this.addUserForm.patchValue(user);
+  async open(template: TemplateRef<any>, userId: number | null = null,action=null) {
+    this.isEditMode = userId !== null;
+    console.log(this.isEditMode);
+    this.editedUserId = userId;
+    if (this.isEditMode && userId !== null && action==="edit") {
+      try{
+        const user= await this.studentservice.singleUser(userId);
+        this.addUserForm.patchValue(user[0]);
+      }catch(error){
+        console.log(error);
+      }
+      
     } else {
       this.addUserForm.reset();
     }

@@ -7,7 +7,7 @@
         <th>Name</th>
         <th>Email</th>
         <th>Phone</th>
-        <th>Location</th>
+        <th>Address</th>
       </tr>
     </thead>
     <tbody>
@@ -15,20 +15,22 @@
         <td>{{ i+1 }}</td>
         <td>{{ user.name }}</td>
         <td>{{ user.email }}</td>
-        <td>{{ user.phone }}</td>
-        <td>{{user.location}}</td>
+        <td>{{user.phone}}</td>
+        <td>{{user.address}}</td>
         <td>
             <!-- <button class="btn btn-primary" (click)="openEditModal(user.id, user.name)">Edit</button>
             <app-modal [editedUserId]="editedUserId" [editedUserName]="editedUserName"></app-modal> -->
-            <button class="btn btn-info" (click)="open(editModal, i)">Edit</button>
-            <button class="btn btn-danger ml-5px" (click)="open(deleteModal,i)">Delete</button>
+            <button class="btn btn-info" (click)="open(editModal,user.id,'edit')">Edit</button>
+            <button class="btn btn-danger ml-5px" (click)="open(deleteModal, user.id, 'delete')">Delete</button>
         </td>
       </tr>
     </tbody>
   </table>
   <div>
-  <button class="btn  btn-outline-primary" (click)="open(editModal)" >Add User</button></div>
+  <button class="btn  btn-outline-primary" (click)="open(editModal)">Add User</button></div>
 
+
+ 
   <ng-template #editModal>
     <form [formGroup]="addUserForm" (ngSubmit)="onSubmit() " style="padding: 10px;">
 
@@ -68,12 +70,12 @@
         </div>
       </div>
       <div style="padding: 5px;">
-        <label for="location">Location:</label>
-        <!-- <input style="margin-left: 5px;" id="location" type="password" > -->
-        <textarea style="margin-left: 5px;" id="location" name="location" rows="4" cols="50" formControlName="location"></textarea>
-        <div style="color: brown;font-size: small;" *ngIf="f['location'].invalid && formSubmitted">
-          <span *ngIf="f['location'].errors?.['required']">Location is required.</span>
-          <span *ngIf="f['location'].errors?.['minlength'] ">Location must be at least 8 characters long.</span>
+        <label for="address">Address:</label>
+        <!-- <input style="margin-left: 5px;" id="location" type="password" >  -->
+         <textarea style="margin-left: 5px;" id="address" name="address" rows="4" cols="50" formControlName="address"></textarea>
+        <div style="color: brown;font-size: small;" *ngIf="f['address'].invalid && formSubmitted">
+          <span *ngIf="f['address'].errors?.['required']">Address is required.</span>
+          <span *ngIf="f['address'].errors?.['minlength'] ">Address must be at least 8 characters long.</span>
           
         </div>
       </div>
@@ -81,18 +83,18 @@
         <button type="submit">{{ isEditMode ? 'Update' : 'Submit' }}</button>
       </div>
     </form>
-  </ng-template>
+  </ng-template> 
   <ng-template  #deleteModal>
     <div style="padding: 10px;">
       <div>
         <p>Do you wish to delete?</p>
       </div>
       <div style="display: flex;justify-content: space-around;">
-        <button  class="btn btn-primary">Cancel</button>
-        <button class="btn btn-danger" (click)="deleteUser()">Delete</button>
+        <button  class="btn btn-primary"(click)="closeModal()">Cancel</button>
+        <button class="btn btn-danger" (click)="deleteUser()" >Delete</button>
       </div>
     </div>
-  </ng-template>
+  </ng-template> 
 
       <!-- using modal -->
 

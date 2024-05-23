@@ -10,6 +10,8 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { TableComponent } from './table/table.component';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SampleComponent } from './sample/sample.component';
+import {HttpClientModule} from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     SecondComponent,
     SignUpComponent,
     TableComponent,
+    SampleComponent,
   
   ],
   imports: [
@@ -25,7 +28,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
